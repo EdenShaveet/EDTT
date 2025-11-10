@@ -40,7 +40,67 @@
     .header { font-size: .12; color: #475569; font-weight: bold}
     a { color: #0ea5e9; text-decoration: none; }
     a:hover { text-decoration: underline; }
+
+    /* Table styling for data dictionary */
+    .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 0.8rem;
+    }
+
+    .data-table th {
+    background: #f1f5f9;
+    color: #334155;
+    text-align: left;
+    padding: 0.7rem;
+    border-bottom: 2px solid #e2e8f0;
+    }
+
+    .data-table td {
+    padding: 0.65rem 0.7rem;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) {
+    background: #f8fafc;
+    }
+
+    .data-table tr:hover {
+    background: #f1f5f9;
+    }
+
+    .data-table td:first-child {
+    font-weight: 600;
+    color: #0f172a;
+    }
+
+    .data-table td:last-child {
+    text-align: center;
+    font-weight: 500;
+    border-left: 1px solid #e2e8f0;
+    text-transform: capitalize;
+    }
+
+    .public {
+    color: #059669; /* green */
+    }
+
+    .private {
+    color: #b91c1c; /* red */
+    }
+
+    @media (max-width: 700px) {
+    .data-table th, .data-table td {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+    }
+
   </style>
+
 </head>
 <body>
   <header>
@@ -50,17 +110,121 @@
     </div>
   </header>
 
-  <main class="wrap">
+<main class="wrap">
     <div class="card">
-        <span class="header">About</span>
-        <br>
-        <span class="notice">TikTok has emerged as a key venue for the circulation of pro-eating disorder (pro-ED) content. Identifying such 
-            content remains challenging as it is often deliberately elusive and conveyed through multimodal cues that go beyond text. Existing datasets 
-            of ED-related TikTok posts rely primarily on hashtags, descriptions, or titles for identification, leading to potentially 
-            irrelevant or non-representative samples. To address this gap, we introduce <strong>EDTT</strong>, the first clinically grounded dataset of pro-ED TikTok posts 
-            annotated for multimodal features, curated through text-based retrieval and recommendation-based surfacing.  </span>
+        <h3 class="header">About</h3>
+        <span class="notice">TikTok has emerged as a key venue for the circulation of pro-eating disorder (pro-ED) content. Identifying such content remains 
+            challenging as it is often deliberately elusive and conveyed through multimodal cues that go beyond text. Existing datasets of ED-related TikTok posts 
+            rely primarily on hashtags, descriptions, or titles for identification, leading to potentially irrelevant or non-representative samples. To address this 
+            gap, we introduce <strong>EDTT</strong>, the first clinically grounded dataset of pro-ED TikTok posts annotated for multimodal features, curated through text-based retrieval 
+            and recommendation-based surfacing. 
+        </span>
     </div>
   </main>
+
+
+<main class="wrap">
+  <div class="card">
+    <h3 class="header">Data Dictionary</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Definition</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Video ID</td>
+          <td>TikTok post identifier (URL structure: https://www.tiktok.com/@user/type/videoid)</td>
+          <td class="private">private</td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>Video or photo slideshow</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Video Description</td>
+          <td>Description of post</td>
+          <td class="private">private</td>
+        </tr>
+        <tr>
+          <td>Transcript</td>
+          <td>Transcription of spoken words or lyrics of song playing over post</td>
+          <td class="private">private</td>
+        </tr>
+        <tr>
+          <td>On Screen Text</td>
+          <td>Text overlayed on screen of post</td>
+          <td class="private">private</td>
+        </tr>
+        <tr>
+          <td>Summary</td>
+          <td>Summary of what's happening in the post</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>EDE Subscale Items</td>
+          <td>Relevant eating disorder psychopathology items based on the Eating Disorder Examination (EDE) subscales</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>EDE Diagnostic Items</td>
+          <td>Relevant eating disorder psychopathology items based on diagnostic features described in the Eating Disorder Examination (EDE)</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Video Elements</td>
+          <td>Visual content annotations</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Audio Elements</td>
+          <td>A description of the post's audio</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Audio Tempo (BPM)</td>
+          <td>The tempo of the posts' audio (in BPM), calculated using librosa</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Audio Valence</td>
+          <td>A heuristic measure of emotional positivity or pleasantness of the music (0 = negative/sad, 1 = positive/happy)</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Audio Valence Label</td>
+          <td>&lt;0.33 = low; 0.33–0.66 = medium; &gt;0.66 = high</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Audio Arousal</td>
+          <td>A heuristic measure of energy, intensity, or emotional activation of the music (0 = calm/low-energy, 1 = energetic/high-intensity)</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Audio Arousal Label</td>
+          <td>&lt;0.33 = low; 0.33–0.66 = medium; &gt;0.66 = high</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Harmonic Ratio</td>
+          <td>Proportion of harmonic sound vs. percussive sound (higher values = more melodic; lower values = less melodic)</td>
+          <td class="public">public</td>
+        </tr>
+        <tr>
+          <td>Mode Major</td>
+          <td>major = 1; minor = 0</td>
+          <td class="public">public</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
 
   <main class="wrap">
     <div class="card">
@@ -78,11 +242,11 @@
 
   <main class="wrap">
     <div class="card">
-        <span class="header">Cite</span>
-        <br>
+        <h3 class="header">Cite</h3>
         <span class="notice">Shaveet, E., Viranda, T., Choudhury, T. EDTT: a Clinically-Grounded and Multimodal 
             Feature Annotated Dataset of Pro-Eating Disorder Content on TikTok. 2026. Society of Behavioral Medicine Annual Meeting & Scientific Sessions. 
-            Chicago, IL, USA.</span>
+            Chicago, IL, USA.
+        </span>
     </div>
   </main>
 

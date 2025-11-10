@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Interactive Dataset</title>
+  <title>EDTT Dataset</title>
 
   <!--Grid.js for table UI-->
   <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
@@ -37,6 +37,7 @@
     }
     .btn:hover { background: #f1f5f9; }
     .notice { font-size: .9rem; color: #475569; }
+    .header { font-size: .12; color: #475569; font-weight: bold}
     a { color: #0ea5e9; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -45,9 +46,21 @@
   <header>
     <div class="wrap">
       <h1>EDTT Dataset</h1>
-      <p class="subtitle">Search, sort, and download</p>
+      <p class="subtitle">a Clinically-Grounded and Multimodal Feature Annotated Dataset of Pro-Eating Disorder Content on TikTok</p>
     </div>
   </header>
+
+  <main class="wrap">
+    <div class="card">
+        <span class="header">About</span>
+        <br>
+        <span class="notice">TikTok has emerged as a key venue for the circulation of pro-eating disorder (pro-ED) content. Identifying such 
+            content remains challenging as it is often deliberately elusive and conveyed through multimodal cues that go beyond text. Existing datasets 
+            of ED-related TikTok posts rely primarily on hashtags, descriptions, or titles for identification, leading to potentially 
+            irrelevant or non-representative samples. To address this gap, we introduce <strong>EDTT</strong>, the first clinically grounded dataset of pro-ED TikTok posts 
+            annotated for multimodal features, curated through text-based retrieval and recommendation-based surfacing.  </span>
+    </div>
+  </main>
 
   <main class="wrap">
     <div class="card">
@@ -60,6 +73,16 @@
       <div class="footer">
         <span class="notice">Tip: use the column headers to sort; use the search box to filter.</span>
       </div>
+    </div>
+  </main>
+
+  <main class="wrap">
+    <div class="card">
+        <span class="header">Cite</span>
+        <br>
+        <span class="notice">Shaveet, E., Viranda, T., Choudhury, T. EDTT: a Clinically-Grounded and Multimodal 
+            Feature Annotated Dataset of Pro-Eating Disorder Content on TikTok. 2026. Society of Behavioral Medicine Annual Meeting & Scientific Sessions. 
+            Chicago, IL, USA.</span>
     </div>
   </main>
 

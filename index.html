@@ -1,143 +1,74 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Interactive Dataset</title>
+<script>
+  //download button for csv
+  document.getElementById('downloadCsv').addEventListener('click', () => {
+    window.location.href = 'EDTT_public.csv';
+  });
 
-  <!--Grid.js for table UI-->
-  <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-  <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+  //load CSV then mount Grid.js
+  Papa.parse('EDTT_public.csv', {
+    download: true,
+    header: true,
+    dynamicTyping: false,
+    skipEmptyLines: true,
+    complete: (results) => {
+      const status = document.getElementById('status');
+      status.style.display = 'none';
 
-  <!--Papa Parse for CSV parsing-->
-  <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
-
-  <style>
-    :root { --maxw: 1100px; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; color: #0f172a; background: #f8fafc; }
-    header { background: white; border-bottom: 1px solid #e2e8f0; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 1.2rem; }
-    h1 { font-size: 1.6rem; margin: 0.4rem 0; }
-    p.subtitle { margin: 0.2rem 0 0.8rem; color: #475569; }
-
-    .card { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
-    .footer { color: #64748b; font-size: 0.9rem; margin-top: 1rem; }
-    .status { display: inline-flex; align-items: center; gap: .5rem; }
-    .spinner {
-      width: 16px; height: 16px; border: 2px solid #cbd5e1; border-top-color: #0ea5e9;
-      border-radius: 50%; animation: spin 0.8s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .error { color: #b91c1c; background: #fee2e2; border: 1px solid #fecaca; padding: .6rem .8rem; border-radius: 10px; display: none; }
-    .controls { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin-bottom: .6rem; }
-    .btn {
-      appearance: none; border: 1px solid #cbd5e1; background: white; padding: .5rem .7rem;
-      border-radius: 10px; cursor: pointer; font-size: .95rem;
-    }
-    .btn:hover { background: #f1f5f9; }
-    .notice { font-size: .9rem; color: #475569; }
-    a { color: #0ea5e9; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap">
-      <h1>EDTT Dataset</h1>
-      <p class="subtitle">Search, sort, and download</p>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <div class="card">
-      <div class="controls">
-        <button id="downloadCsv" class="btn">Download CSV</button>
-        <span id="status" class="status"><span class="spinner"></span> Loading data…</span>
-      </div>
-      <div id="error" class="error"></div>
-      <div id="table"></div>
-      <div class="footer">
-        <span class="notice">Tip: use the column headers to sort; use the search box to filter.</span>
-      </div>
-    </div>
-  </main>
-
-  <script>
-
-    //download button for csv
-    document.getElementById('downloadCsv').addEventListener('click', () => {
-      window.location.href = 'EDTT_public.csv';
-    });
-
-    //load CSV then mount Grid.js
-    Papa.parse('EDTT_public.csv', {
-      download: true,
-      header: true,
-      dynamicTyping: false,
-      skipEmptyLines: true,
-      complete: (results) => {
-        const status = document.getElementById('status');
-        status.style.display = 'none';
-
-        if (results.errors && results.errors.length) {
-          const errBox = document.getElementById('error');
-          errBox.style.display = 'block';
-          errBox.textContent = 'Some rows could not be parsed. Showing what we could.';
-          console.warn('Papa Parse errors:', results.errors);
-        }
-
-        const rows = results.data;
-        if (!rows.length) {
-          const errBox = document.getElementById('error');
-          errBox.style.display = 'block';
-          errBox.textContent = 'No rows found in EDTT_public.csv.';
-          return;
-        }
-
-        const columns = Object.keys(rows[0]);
-
-        //convert objects to arrays in consistent column order
-        const data = rows.map((row) => columns.map((c) => row[c]));
-
-
-        //per-column formatters (may be necessary at a later point)
-        const gridColumns = columns.map((c) => {
-          if (/date|time|on$/i.test(c)) {
-            return {
-              name: c,
-              formatter: (cell) => {
-                const d = new Date(cell);
-                if (isNaN(d)) return cell;
-                return d.toLocaleDateString();
-              }
-            };
-          }
-          return c;
-        });
-
-        new gridjs.Grid({
-          columns: gridColumns,
-          data,
-          search: true,
-          sort: true,
-          pagination: { enabled: true, limit: 10 },
-          resizable: true,
-          fixedHeader: true,
-          style: {
-            table: { 'white-space': 'nowrap' }
-          }
-        }).render(document.getElementById('table'));
-      },
-      error: (err) => {
-        const status = document.getElementById('status');
-        status.style.display = 'none';
+      if (results.errors && results.errors.length) {
         const errBox = document.getElementById('error');
         errBox.style.display = 'block';
-        errBox.textContent = 'Failed to load EDTT_public.csv. Make sure it exists in the repo root.';
-        console.error(err);
+        errBox.textContent = 'Some rows could not be parsed. Showing what we could.';
+        console.warn('Papa Parse errors:', results.errors);
       }
-    });
-  </script>
-</body>
-</html>
+
+      const rows = results.data;
+      if (!rows.length) {
+        const errBox = document.getElementById('error');
+        errBox.style.display = 'block';
+        errBox.textContent = 'No rows found in EDTT_public.csv.';
+        return;
+      }
+
+      const columns = Object.keys(rows[0]);
+
+      //convert objects to arrays in consistent column order
+      const data = rows.map((row) => columns.map((c) => row[c]));
+
+      //per-column formatters
+      const gridColumns = columns.map((c) => {
+        if (/date|time|on$/i.test(c)) {
+          return {
+            name: c,
+            formatter: (cell) => {
+              const d = new Date(cell);
+              if (isNaN(d)) return cell;
+              return d.toLocaleDateString();
+            }
+          };
+        }
+        return c;
+      });
+
+      new gridjs.Grid({
+        columns: gridColumns,
+        data,
+        search: true,
+        sort: true,
+        pagination: { enabled: true, limit: 10 },
+        resizable: true,
+        fixedHeader: true,
+        style: {
+          table: { 'white-space': 'nowrap' }
+        }
+      }).render(document.getElementById('table'));
+    },
+    error: (err) => {
+      const status = document.getElementById('status');
+      status.style.display = 'none';
+      const errBox = document.getElementById('error');
+      errBox.style.display = 'block';
+      errBox.textContent = 'Failed to load EDTT_public.csv. Make sure it exists in the repo root.';
+      console.error(err);
+    }
+  });
+</script>

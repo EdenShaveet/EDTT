@@ -98,7 +98,8 @@
         const columns = Object.keys(rows[0]);
 
         //convert objects to arrays in consistent column order
-        const data = rows.map((row) => columns.map((c) => formatMaybeCurrency(c, row[c])));
+        const data = rows.map((row) => columns.map((c) => row[c]));
+
 
         //per-column formatters (may be necessary at a later point)
         const gridColumns = columns.map((c) => {

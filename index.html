@@ -36,7 +36,7 @@
       border-radius: 10px; cursor: pointer; font-size: .95rem;
     }
     .btn:hover { background: #f1f5f9; }
-    .notice { font-size: .9rem; color: #475569; }
+    .notice { font-size: .12; color: #475569; }
     .header { font-size: .12; color: #475569; font-weight: bold}
     a { color: #0ea5e9; text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -228,6 +228,7 @@
 
   <main class="wrap">
     <div class="card">
+      <h3 class="header">Dataset</h3>
       <div class="controls">
         <button id="downloadCsv" class="btn">Download CSV</button>
         <span id="status" class="status"><span class="spinner"></span> Loading data…</span>
@@ -240,9 +241,19 @@
     </div>
   </main>
 
+
   <main class="wrap">
     <div class="card">
-        <h3 class="header">Cite</h3>
+        <h3 class="header">Private Variables</h3>
+        <span class="notice">The EDTT dataset with publicly-available variables is available for immediate download and use. In compliance with TikTok's Research Tools
+          Terms of Service, the full unpublished dataset includes private variables which are reserved for use by our team and project collaborators.
+        </span>
+    </div>
+  </main>
+
+  <main class="wrap">
+    <div class="card">
+        <h3 class="header">Cite As</h3>
         <span class="notice">Shaveet, E., Viranda, T., Choudhury, T. EDTT: a Clinically-Grounded and Multimodal 
             Feature Annotated Dataset of Pro-Eating Disorder Content on TikTok. 2026. Society of Behavioral Medicine Annual Meeting & Scientific Sessions. 
             Chicago, IL, USA.

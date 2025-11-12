@@ -1,0 +1,18 @@
+﻿Item,Definition,Availability
+Video ID,TikTok post identifier (URL structure: https://www.tiktok.com/@user/type/videoid),private
+Type,Video or photo slideshow,public
+Video Description,Description of post,private
+Transcript,Transcription of spoken words or lyrics of song playing over post,private
+On Screen Text,Text overlayed on screen of post,private
+Summary,Summary of what's happening in the post,public
+EDE Subscale Items,Relevant eating disorder psychopathology items based on the Eating Disorder Examination (EDE) subscales,public
+EDE Diagnostic Items,Relevant eating disorder psychopathology items based on diagnostic features described in the Eating Disorder Examination (EDE),public
+Video Elements,Visual content annotations,public
+Audio Elements,A description of the post's audio,public
+Audio Tempo (BPM),"The tempo of the posts' audio (in BPM), calculated using librosa",public
+Audio Valence,"A heuristic measure of emotional positivity or pleasantness of the music (0 = negative/sad, 1 = positive/happy)",public
+Audio Valence Label,<0.33 = low; 0.33-0.66 = medium; >0.66 = high,public
+Audio Arousal,"A heuristic measure of energy, intensity, or emotional activation of the music (0 = calm/low-energy, 1 = energetic/high-intensity)",public
+Audio Arousal Label,<0.33 = low; 0.33-0.66 = medium; >0.66 = high,public
+Harmonic Ratio,Proportion of harmonic sound vs. percussive sound (higher values = more melodic; lower values = less melodic),public
+Mode Major,major = 1; minor = 0,public

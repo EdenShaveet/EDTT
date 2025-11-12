@@ -41,6 +41,15 @@
     a { color: #0ea5e9; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    video {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
     /* Table styling for data dictionary */
     .data-table {
     width: 100%;
@@ -48,6 +57,9 @@
     font-size: 0.95rem;
     line-height: 1.5;
     margin-top: 0.8rem;
+    overflow-y:scroll;
+    height:400px;
+    display:block;
     }
 
     .data-table th {
@@ -118,10 +130,23 @@
             rely primarily on hashtags, descriptions, or titles for identification, leading to potentially irrelevant or non-representative samples. To address this 
             gap, we introduce <strong>EDTT</strong>, the first clinically grounded dataset of pro-ED TikTok posts annotated for multimodal features, curated through text-based retrieval 
             and recommendation-based surfacing. 
+            <br>
+            <br>
+            For more information, refer to our upcoming work to be presented at the <a href="https://www.sbm.org/events/annual-meeting">47th Annual Meeting & Scientific Sessions of the Society of 
+            Behavioral Medicine </a> and published in the SBM Annual Meeting Supplement issue of <a href="https://academic.oup.com/abm">Annals of Behavioral Medicine</a>.
         </span>
     </div>
   </main>
 
+
+<main class="wrap">
+  <div class="card">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="EDTT_visualization_2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</main>
 
 <main class="wrap">
   <div class="card">
@@ -137,9 +162,9 @@
       </thead>
       <tbody>
         <tr>
-          <td>Video ID</td>
+          <td>Post ID</td>
           <td>TikTok post identifier (URL structure: https://www.tiktok.com/@user/type/videoid)</td>
-          <td class="private">private</td>
+          <td class="public">public</td>
         </tr>
         <tr>
           <td>Type</td>
@@ -147,7 +172,7 @@
           <td class="public">public</td>
         </tr>
         <tr>
-          <td>Video Description</td>
+          <td>Post Description</td>
           <td>Description of post</td>
           <td class="private">private</td>
         </tr>
@@ -177,7 +202,7 @@
           <td class="public">public</td>
         </tr>
         <tr>
-          <td>Video Elements</td>
+          <td>Visual Elements</td>
           <td>Visual content annotations</td>
           <td class="public">public</td>
         </tr>
@@ -188,7 +213,7 @@
         </tr>
         <tr>
           <td>Audio Tempo (BPM)</td>
-          <td>The tempo of the posts' audio (in BPM), calculated using librosa</td>
+          <td>The tempo of the posts' audio (in BPM)</td>
           <td class="public">public</td>
         </tr>
         <tr>
@@ -245,8 +270,20 @@
   <main class="wrap">
     <div class="card">
         <h3 class="header">Private Variables</h3>
-        <span class="notice">The EDTT dataset with publicly-available variables is available for immediate download and use. In compliance with TikTok's Research Tools
-          Terms of Service, the full unpublished dataset includes private variables which are reserved for use by our team and project collaborators.
+        <span class="notice">The EDTT dataset with publicly-available variables is available for immediate download and use. For privacy preservation, 
+          the full unpublished dataset includes private variables which are not publicly available. Please <a href="mailto:ems486@cornell.edu">constact us</a> 
+          if you have any questions.
+        </span>
+    </div>
+  </main>
+
+  <main class="wrap">
+    <div class="card">
+        <h3 class="header">Contributing</h3>
+        <span class="notice">Content that is considered "pro-eating disorder" evolves as contextual references and cultural zeitgist around disordered eating
+          behavior evolves. Given this, EDTT will be continuously kept up to date (refreshed, revisited, and appended to) with the help of crowdsourced information. 
+          We are still conceptualizing what this will look like in practice. To express interest in being a part of the EDTT dataset crowdsourcing team, 
+          please <a href="mailto:ems486@cornell.edu">contact us</a>.
         </span>
     </div>
   </main>

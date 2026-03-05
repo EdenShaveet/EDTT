@@ -16,6 +16,8 @@
     :root { --maxw: 1100px; }
     body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; color: #0f172a; background: #f8fafc; }
     header { background: white; border-bottom: 1px solid #e2e8f0; }
+    .header-inner { display: flex; align-items: center; gap: 0.8rem; justify-content: space-between; }
+    .header-logo { height: 136px; width: auto; }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 1.2rem; }
     h1 { font-size: 1.6rem; margin: 0.4rem 0; }
     p.subtitle { margin: 0.2rem 0 0.8rem; color: #475569; }
@@ -117,8 +119,13 @@
 <body>
   <header>
     <div class="wrap">
-      <h1>EDTT Dataset</h1>
-      <p class="subtitle">a Clinically-Grounded and Multimodal Feature Annotated Dataset of Pro-Eating Disorder Content on TikTok</p>
+      <div class="header-inner">
+        <div>
+          <h1>EDTT Dataset</h1>
+          <p class="subtitle">a Clinically-Grounded and Multimodal Feature Annotated Dataset of Pro-Eating Disorder Content on TikTok</p>
+        </div>
+        <img src="EDTT.png" alt="EDTT logo" class="header-logo" />
+      </div>
     </div>
   </header>
 
@@ -132,7 +139,7 @@
             and recommendation-based surfacing. 
             <br>
             <br>
-            For more information, refer to our upcoming work to be presented at the <a href="https://www.sbm.org/events/annual-meeting">47th Annual Meeting & Scientific Sessions of the Society of 
+            For more information, refer to our upcoming <a href="SBM_Abstract.pdf">work</a> to be presented at the <a href="https://www.sbm.org/events/annual-meeting">47th Annual Meeting & Scientific Sessions of the Society of 
             Behavioral Medicine </a> and published in the SBM Annual Meeting Supplement issue of <a href="https://academic.oup.com/abm">Annals of Behavioral Medicine</a>.
         </span>
     </div>
@@ -270,8 +277,8 @@
   <main class="wrap">
     <div class="card">
         <h3 class="header">Private Variables</h3>
-        <span class="notice">The EDTT dataset with publicly-available variables is available for immediate download and use. For privacy preservation, 
-          the full unpublished dataset includes private variables which are not publicly available. Please <a href="mailto:ems486@cornell.edu">constact us</a> 
+        <span class="notice">The current, public-facing EDTT dataset is available for immediate download and use. For privacy preservation, 
+          the full unpublished dataset includes private variables which are not publicly available. Please <a href="mailto:ems486@cornell.edu">contact us</a> 
           if you have any questions.
         </span>
     </div>
@@ -279,11 +286,12 @@
 
   <main class="wrap">
     <div class="card">
-        <h3 class="header">Contributing</h3>
-        <span class="notice">Content that is considered "pro-eating disorder" evolves as contextual references and cultural zeitgist around disordered eating
-          behavior evolves. Given this, EDTT will be continuously kept up to date (refreshed, revisited, and appended to) with the help of crowdsourced information. 
-          We are still conceptualizing what this will look like in practice. To express interest in being a part of the EDTT dataset crowdsourcing team, 
-          please <a href="mailto:ems486@cornell.edu">contact us</a>.
+        <h3 class="header">Dataset Updates</h3>
+        <span class="notice">The private version of EDTT is currently being updated through an experimental pipeline incorporating new fields. Future work will explore 
+          approaches for continuously updating the public-facing EDTT through crowdsourcing, metadata extraction, and expert annotation. We welcome community involvement. 
+          To join the EDTT crowdsourcing team, please <a href="mailto:ems486@cornell.edu">contact us</a>. In the meantime, contributions of pro-ED terms or hashtags to our query 
+          repository can be submitted <a href="https://forms.gle/GuFvQykmHE7UmvSG6">here</a>.
+        
         </span>
     </div>
   </main>
